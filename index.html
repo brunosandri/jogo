@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#120d27" />
+  <title>Corra, Benício!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="game-shell" aria-label="Jogo Corra, Benício">
+    <canvas id="game" width="430" height="820" aria-label="Pista do jogo"></canvas>
+
+    <section id="hud" class="hud hidden" aria-live="polite">
+      <div class="hud-top">
+        <button id="pause-btn" class="icon-btn" aria-label="Pausar">Ⅱ</button>
+        <div class="score-box"><span>PONTOS</span><strong id="score">00000</strong></div>
+        <div class="life-box" aria-label="Vida"><span>❤</span><strong id="lives">3</strong></div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">▦</div>
+        <div class="mission-copy"><span>MISSÃO</span><strong id="mission-text">Colete 12 peças</strong></div>
+        <div id="mission-progress" class="mission-progress">0/12</div>
+      </div>
+      <div id="powerups" class="powerups"></div>
+      <div id="toast" class="toast"></div>
+    </section>
+
+    <section id="start-screen" class="screen start-screen">
+      <div class="brand-pill">★ CORRIDA NA LOJA ★</div>
+      <h1>CORRA,<br><span>BENÍCIO!</span></h1>
+      <p class="tagline">A loja fechou. Os brinquedos acordaram.<br><strong>Corra antes que a bagunça te alcance!</strong></p>
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-glow"></div>
+        <div class="hero-kid"><i></i><b></b><em></em></div>
+        <div class="brick brick-a"></div><div class="brick brick-b"></div><div class="brick brick-c"></div>
+      </div>
+      <button id="play-btn" class="primary-btn"><span>▶</span> CORRER AGORA</button>
+      <div class="tutorial-row">
+        <div><span>↔</span><small>DESVIE</small></div>
+        <div><span>↑</span><small>PULE</small></div>
+        <div><span>↓</span><small>ABAIXE</small></div>
+      </div>
+      <p class="controls-hint">Arraste na tela ou use as setas / WASD</p>
+    </section>
+
+    <section id="pause-screen" class="screen modal-screen hidden">
+      <div class="modal-card">
+        <div class="modal-icon">⏸</div><h2>PAUSA</h2><p>Benício está recuperando o fôlego.</p>
+        <button id="resume-btn" class="primary-btn">CONTINUAR</button>
+        <button id="quit-btn" class="text-btn">VOLTAR AO INÍCIO</button>
+      </div>
+    </section>
+
+    <section id="gameover-screen" class="screen modal-screen hidden">
+      <div class="modal-card gameover-card">
+        <div class="modal-icon danger">!</div><p class="eyebrow">A BAGUNÇA VENCEU</p><h2>QUASE!</h2>
+        <div class="result"><span>SUA PONTUAÇÃO</span><strong id="final-score">0</strong></div>
+        <div class="result-grid"><div><span>PEÇAS</span><strong id="final-bricks">0</strong></div><div><span>RECORDE</span><strong id="best-score">0</strong></div></div>
+        <button id="retry-btn" class="primary-btn"><span>↻</span> TENTAR DE NOVO</button>
+        <button id="home-btn" class="text-btn">VOLTAR AO INÍCIO</button>
+      </div>
+    </section>
+
+    <div id="rotate-note">📱 Jogue com o celular em pé</div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
